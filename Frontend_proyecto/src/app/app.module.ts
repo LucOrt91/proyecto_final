@@ -6,17 +6,22 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LogoApComponent } from './components/logo-ap/logo-ap.component';
 import { SocialNetworksComponent } from './components/social-networks/social-networks.component';
+import { BannerComponent } from './components/banner/banner.component';
+import { AcercaDeComponent } from './components/acerca-de/acerca-de.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LogoApComponent,
-    SocialNetworksComponent
+    SocialNetworksComponent,
+    BannerComponent,
+    AcercaDeComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
