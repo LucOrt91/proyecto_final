@@ -1,3 +1,16 @@
-#logoAp {
+.container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#logoAp{
   width: 150px;
+}
+
+img{
+  width: 50px;
+}
+.btn{
+  border-width: medium;
+  border-radius: 15px; 
 }
