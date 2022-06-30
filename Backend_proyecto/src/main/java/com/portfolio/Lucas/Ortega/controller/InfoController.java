@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/info")
-@CrossOrigin ""
 public class InfoController {
     private final InfoService infoService;
 

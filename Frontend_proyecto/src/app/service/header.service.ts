@@ -11,10 +11,10 @@ export class HeaderService {
   private apiServerUrl = environment.apiBaseUrl;
   constructor(private http: HttpClient) {}
 
-  public getInfo(): Observable<Info> {
+  public getUser(): Observable<Info> {
     return this.http.get<Info>(`${this.apiServerUrl}/info/id/1`);
   }
-  public updateInfo(info: Info): Observable<Info> {
+  public updateUser(info: Info): Observable<Info> {
     return this.http.put<Info>(`${this.apiServerUrl}/update`, info);
   }
 }

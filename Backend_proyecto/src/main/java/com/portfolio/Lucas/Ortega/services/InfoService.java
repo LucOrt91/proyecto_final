@@ -21,7 +21,7 @@ public class InfoService {
     public Info addInfo(Info info){
         return infoRepo.save(info);
     }
-    public List<Info> findInfo(){
+    public List<Info> findInfo(Long id){
         return infoRepo.findAll();
     }
     public Info editInfo(Info info){

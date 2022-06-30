@@ -24,7 +24,7 @@ public class Info implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "idEdu")
     private List<Education> educationList;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "idSkill")
-    private List<Skills> skillsList;
+    private List<Skill> skillList;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "idExp")
     private List<Experience> experienceList;
 

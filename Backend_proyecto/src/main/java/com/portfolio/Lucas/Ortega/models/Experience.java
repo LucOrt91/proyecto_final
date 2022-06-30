@@ -18,7 +18,8 @@ public class Experience {
     private String tituloExp;
     private int fechaExp;
     private String descExp;
-    private String imgEdu;
+
+    private String imgExp;
 
     public Experience() {
     }
@@ -28,6 +29,6 @@ public class Experience {
         this.tituloExp = tituloExp;
         this.fechaExp = fechaExp;
         this.descExp = descExp;
-        this.imgEdu = imgEdu;
+        this.imgExp = imgExp;
     }
 }

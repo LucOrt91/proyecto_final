@@ -1,6 +1,6 @@
 .row{
     padding: 20px;
-
+    background-color: #a1b5cb
 }
 div{
     background-color: #a1b5cb;
@@ -10,4 +10,7 @@ h1-h2{
     font-size: 25px;
     color: black;
     font-weight: bold;
+}
+.col-3{
+    justify-content: left;
 }

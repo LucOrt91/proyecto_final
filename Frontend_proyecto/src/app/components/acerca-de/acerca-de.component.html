@@ -1,24 +1,21 @@
 <div class="row">
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-    <img
-      src="../../../assets/FotoPerfil.jpg"
-      class="img-fluid"
-      id="fotoPerfil"
-    />
+  <div *ngIf="info" class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+    <img src="{{ info.fotoPerfil }}" class="img-fluid" id="fotoPerfil" />
   </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-    <div *ngIf="Info">{{ Info.nombre }}{{ Info.apellido }}</div>
-    <p>Full Stack Developer</p>
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <div *ngIf="info">
+      <h1>{{ info.nombre }} {{ info.apellido }}</h1>
+    </div>
+    <div *ngIf="info">
+      <h3>{{ info.titulo }}</h3>
+    </div>
   </div>
-  <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-    <span>
-      <h1>Acerca de Mi</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Error autem
-        praesentium nostrum, commodi inventore laboriosam ad! Repellat et fugit
-        tempora porro unde. Architecto ullam, voluptatum dicta voluptate quam
-        laboriosam hic.
-      </p>
-    </span>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <span>
+        <div *ngIf="info">
+          <h1>Acerca de Mi</h1>
+          <p>{{ info.descripcion }}</p>
+        </div>
+      </span>
+    </div>
   </div>
-</div>

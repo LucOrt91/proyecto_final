@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @Setter
-public class Skills {
+public class Skill {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idSkill;
@@ -19,10 +19,10 @@ public class Skills {
     private String imgSkill;
     private int porcentaje;
 
-    public Skills() {
+    public Skill() {
     }
 
-    public Skills(Long idSkill, String tituloSkill, String imgSkill, int porcentaje) {
+    public Skill(Long idSkill, String tituloSkill, String imgSkill, int porcentaje) {
         this.idSkill = idSkill;
         this.tituloSkill = tituloSkill;
         this.imgSkill = imgSkill;
