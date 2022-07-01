@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/info")
+@RequestMapping("/api/info")
 public class InfoController {
     private final InfoService infoService;
 
