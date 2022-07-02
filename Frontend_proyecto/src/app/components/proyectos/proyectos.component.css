@@ -1,14 +1,16 @@
-.row{
-    padding: 20px;
-    background-color: #a1b5cb;
+.row {
+  padding: 20px;
+  background-color: #a1b5cb;
 }
-.contenedor{
-    width: auto;
+div {
+  background-color: #a1b5cb;
+  text-align: left;
 }
-.tituloProyecto{
-    display: inline-block;
-    text-align: justify;
+h1-h2 {
+  font-size: 25px;
+  color: black;
+  font-weight: bold;
 }
-.imgProyecto{
-    box-shadow: 10px 10px 30px black;
+.col-3 {
+  justify-content: left;
 }

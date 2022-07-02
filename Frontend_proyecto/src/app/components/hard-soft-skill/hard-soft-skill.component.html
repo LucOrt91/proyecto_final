@@ -3,7 +3,7 @@
   <div class="text-center">
     <button type="button" class="btn btn-success" (click)="onOpenModal('add')">
       <a class="nav-link" style="color: #fff"
-        >Add Skill <span class="sr-only">(current)</span></a
+        >Agregar Skill <span class="sr-only">(current)</span></a
       >
     </button>
   </div>
@@ -14,7 +14,7 @@
           <div class="col">
             <div class="text-center col-sm-4 col-md-4 col-lg-4">
               <circle-progress
-                [percent]="'{{skill.porcentaje}}'"
+                [percent]="00"
                 [radius]="100"
                 [imageSrc]="'{{skill.imgSkill}}'"
                 [showImage]="true"
@@ -61,7 +61,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="addSkillModalLabel">Add Skill</h5>
+              <h5 class="modal-title" id="addSkillModalLabel">Agregar Skill</h5>
               <button
                 type="button"
                 class="close"
@@ -74,7 +74,7 @@
             <div class="modal-body">
               <form #addForm="ngForm" (ngSubmit)="onAddSkill(addForm)">
                 <div class="form-group">
-                  <label for="tituloSkill">Title</label>
+                  <label for="tituloSkill">Titulo</label>
                   <input
                     type="text"
                     ngModel
@@ -86,7 +86,7 @@
                   />
                 </div>
                 <div class="form-group">
-                  <label for="imagenSkill">Image Url</label>
+                  <label for="imagenSkill">Url de la imagen</label>
                   <input
                     type="text"
                     ngModel
@@ -104,14 +104,14 @@
                     class="btn btn-secondary"
                     data-dismiss="modal"
                   >
-                    Close
+                    Cerrar
                   </button>
                   <button
                     [disabled]="addForm.invalid"
                     type="submit"
                     class="btn btn-primary"
                   >
-                    Save changes
+                    Guardar cambios
                   </button>
                 </div>
               </form>
@@ -132,7 +132,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="updateSkillModalLabel">
-                Edit Education {{ editSkill?.tituloSkill }}
+                Editar Skill {{ editSkill?.tituloSkill }}
               </h5>
               <button
                 type="button"
@@ -146,7 +146,7 @@
             <div class="modal-body">
               <form #editForm="ngForm">
                 <div class="form-group">
-                  <label for="tituloSkill">Title</label>
+                  <label for="tituloSkill">Titulo</label>
                   <input
                     type="text"
                     ngModel="{{ editSkill?.tituloSkill }}"
@@ -166,7 +166,7 @@
                   placeholder=""
                 />
                 <div class="form-group">
-                  <label for="imagenSkill">Image Url</label>
+                  <label for="imagenSkill">Url de la imagen</label>
                   <input
                     type="text"
                     ngModel
@@ -184,14 +184,14 @@
                     data-dismiss="modal"
                     class="btn btn-secondary"
                   >
-                    Close
+                    Cerrar
                   </button>
                   <button
                     (click)="onUpdateSkill(editForm.value)"
                     data-dismiss="modal"
                     class="btn btn-primary"
                   >
-                    Save changes
+                    Guardar cambios
                   </button>
                 </div>
               </form>
@@ -214,7 +214,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="deleteSkillModalLabel">
-                Delete Skill
+                Borrar Skill
               </h5>
               <button
                 type="button"
@@ -227,7 +227,7 @@
             </div>
             <div class="modal-body">
               <p>
-                Are you sure you want to delete this skill?
+                ¿Estás seguro que querés borrar esta skill?
                 {{ deleteSkill?.tituloSkill }}
               </p>
               <div class="modal-footer">
@@ -244,7 +244,7 @@
                   class="btn btn-danger"
                   data-dismiss="modal"
                 >
-                  Yes
+                  Si
                 </button>
               </div>
             </div>
@@ -254,8 +254,8 @@
       <!--Notifcation for no employees-->
       <div *ngIf="skills?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
         <div class="alert alert-info" role="alert">
-          <h4 class="alert-heading">NO Skill!</h4>
-          <p>No Employees were found</p>
+          <h4 class="alert-heading">NO hay Skill!</h4>
+          <p>Ninguna Skill fue encontrada</p>
         </div>
       </div>
     </div>
