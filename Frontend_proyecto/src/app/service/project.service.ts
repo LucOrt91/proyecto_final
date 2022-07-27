@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Project } from '../models/Project';
+import { Project } from '../models/proyecto.model';
 
 @Injectable({
   providedIn: 'root',
@@ -19,10 +19,7 @@ export class ProjectService {
     return this.http.post<Project>(`${this.apiServerUrl}/project/add`, project);
   }
   public updateExperience(project: Project): Observable<Project> {
-    return this.http.put<Project>(
-      `${this.apiServerUrl}/project/update`,
-      project
-    );
+    return this.http.put<Project>(`${this.apiServerUrl}/project/update`,project);
   }
   public deleteProject(projectId: number): Observable<void> {
     return this.http.delete<void>(

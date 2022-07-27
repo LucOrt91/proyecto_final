@@ -1,263 +1,111 @@
-<div class="row edu main-contanier">
-  <h1>Hard & Soft Skills</h1>
-  <div class="text-center">
-    <button type="button" class="btn btn-success" (click)="onOpenModal('add')">
-      <a class="nav-link" style="color: #fff"
-        >Agregar Skill <span class="sr-only">(current)</span></a
-      >
-    </button>
+<div class="row">
+  <h1>Hard & Soft skills</h1>
+  <div class="text-center col-sm-4 col-md-4 col-lg-4">
+      <circle-progress
+          [percent]="95"
+          [radius]="90"
+          [imageSrc]="'../assets/html.png'"
+          [showImage]="true"
+          [imageHeight]="70"
+          [imageWidth]="70"
+          [showUnits]="false"
+          [showSubtitle]="false"
+          [outerStrokeWidth]="16"
+          [innerStrokeWidth]="2"
+          [outerStrokeColor]="'#78C000'"
+          [innerStrokeColor]="'#C7E596'"
+          [animation]="true"
+          [animationDuration]="600"
+      ></circle-progress>
   </div>
-  <div id="main-container">
-    <div *ngFor="let skill of skills" class="col-lg-12">
-      <div class="container">
-        <div class="row align-items-start">
-          <div class="col">
-            <div class="text-center col-sm-4 col-md-4 col-lg-4">
-              <circle-progress
-                [percent]="00"
-                [radius]="100"
-                [imageSrc]="'{{skill.imgSkill}}'"
-                [showImage]="true"
-                [imageHeight]="90"
-                [imageWidth]="90"
-                [showUnits]="false"
-                [showSubtitle]="false"
-                [outerStrokeWidth]="16"
-                [innerStrokeWidth]="2"
-                [outerStrokeColor]="'#00bcd4'"
-                [innerStrokeColor]="'#eaeaea'"
-                [animation]="true"
-                [animationDuration]="300"
-              ></circle-progress>
-            </div>
-            <a
-              (click)="onOpenModal('edit', skill)"
-              class="btn btn-primary tooltips"
-              data-placement="top"
-              data-toogle="tooltop"
-              data-original-title="Edit"
-              ><i class="fas fa-pencil"></i>
-            </a>
-            <a
-              (click)="onOpenModal('delete', skill)"
-              class="btn btn-danger tooltips"
-              data-placement="top"
-              data-toogle="tooltop"
-              data-original-title="Delete"
-              ><i class="fas fa-times"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-      <!--Add Employee Modal -->
-      <div
-        class="modal fade"
-        id="addSkillModal"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="addSkillModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="addSkillModalLabel">Agregar Skill</h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form #addForm="ngForm" (ngSubmit)="onAddSkill(addForm)">
-                <div class="form-group">
-                  <label for="tituloSkill">Titulo</label>
-                  <input
-                    type="text"
-                    ngModel
-                    name="tituloSkill"
-                    class="form-control"
-                    id="tituloSkill"
-                    placeholder="Title"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="imagenSkill">Url de la imagen</label>
-                  <input
-                    type="text"
-                    ngModel
-                    name="imagenSkill"
-                    class="form-control"
-                    id="imagenSkill"
-                    placeholder="Image"
-                    required
-                  />
-                </div>
-                <div class="modal-footer">
-                  <button
-                    type="button"
-                    id="add-skill-form"
-                    class="btn btn-secondary"
-                    data-dismiss="modal"
-                  >
-                    Cerrar
-                  </button>
-                  <button
-                    [disabled]="addForm.invalid"
-                    type="submit"
-                    class="btn btn-primary"
-                  >
-                    Guardar cambios
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--Edit Modal -->
-      <div
-        class="modal fade"
-        id="editSkillModal"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="skillEditModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="updateSkillModalLabel">
-                Editar Skill {{ editSkill?.tituloSkill }}
-              </h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form #editForm="ngForm">
-                <div class="form-group">
-                  <label for="tituloSkill">Titulo</label>
-                  <input
-                    type="text"
-                    ngModel="{{ editSkill?.tituloSkill }}"
-                    name="tituloSkill"
-                    class="form-control"
-                    id="tituloEdu"
-                    aria-describedby="emailHelp"
-                    placeholder="Title"
-                  />
-                </div>
-                <input
-                  type="hidden"
-                  ngModel="{{ editSkill?.idSkill }}"
-                  name="idSkill"
-                  class="form-control"
-                  id="idSkill"
-                  placeholder=""
-                />
-                <div class="form-group">
-                  <label for="imagenSkill">Url de la imagen</label>
-                  <input
-                    type="text"
-                    ngModel
-                    name="imagenSkill"
-                    class="form-control"
-                    id="imagenSkill"
-                    placeholder="Image URL"
-                    required
-                  />
-                </div>
-                <div class="modal-footer">
-                  <button
-                    type="button"
-                    id=""
-                    data-dismiss="modal"
-                    class="btn btn-secondary"
-                  >
-                    Cerrar
-                  </button>
-                  <button
-                    (click)="onUpdateSkill(editForm.value)"
-                    data-dismiss="modal"
-                    class="btn btn-primary"
-                  >
-                    Guardar cambios
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--Delete Modal -->
-      <div
-        data-bs-toogle="modal"
-        data-bs-target="#deleteSkillModal"
-        class="modal fade"
-        id="deleteSkillModal"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="deleteSkillModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="deleteSkillModalLabel">
-                Borrar Skill
-              </h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p>
-                ¿Estás seguro que querés borrar esta skill?
-                {{ deleteSkill?.tituloSkill }}
-              </p>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  id="delete-Skill-form"
-                  class="btn btn-secondary"
-                  data-dismiss="modal"
-                >
-                  No
-                </button>
-                <button
-                  (click)="onDeleteSkill(deleteSkill!.idSkill)"
-                  class="btn btn-danger"
-                  data-dismiss="modal"
-                >
-                  Si
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--Notifcation for no employees-->
-      <div *ngIf="skills?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
-        <div class="alert alert-info" role="alert">
-          <h4 class="alert-heading">NO hay Skill!</h4>
-          <p>Ninguna Skill fue encontrada</p>
-        </div>
-      </div>
-    </div>
+  <div class="text-center col-sm-4 col-md-4 col-lg-4">
+      <circle-progress
+          [percent]="90"
+          [radius]="90"
+          [imageSrc]="'../assets/CSS.png'"
+          [showImage]="true"
+          [imageHeight]="70"
+          [imageWidth]="70"
+          [showUnits]="false"
+          [showSubtitle]="false"
+          [outerStrokeWidth]="16"
+          [innerStrokeWidth]="2"
+          [outerStrokeColor]="'#78C000'"
+          [innerStrokeColor]="'#C7E596'"
+          [animation]="true"
+          [animationDuration]="600"
+      ></circle-progress>
+  </div>
+  <div class="text-center col-sm-4 col-md-4 col-lg-4">
+      <circle-progress
+          [percent]="80"
+          [radius]="90"
+          [imageSrc]="'../assets/js.png'"
+          [showImage]="true"
+          [imageHeight]="70"
+          [imageWidth]="70"
+          [showUnits]="false"
+          [showSubtitle]="false"
+          [outerStrokeWidth]="16"
+          [innerStrokeWidth]="2"
+          [outerStrokeColor]="'#78C000'"
+          [innerStrokeColor]="'#C7E596'"
+          [animation]="true"
+          [animationDuration]="600"
+      ></circle-progress>
+  </div>
+  <div class="text-center col-sm-4 col-md-4 col-lg-4">
+      <circle-progress
+          [percent]="65"
+          [radius]="90"
+          [imageSrc]="'../assets/git.png'"
+          [showImage]="true"
+          [imageHeight]="70"
+          [imageWidth]="70"
+          [showUnits]="false"
+          [showSubtitle]="false"
+          [outerStrokeWidth]="16"
+          [innerStrokeWidth]="2"
+          [outerStrokeColor]="'#78C000'"
+          [innerStrokeColor]="'#C7E596'"
+          [animation]="true"
+          [animationDuration]="600"
+      ></circle-progress>
+  </div>
+  <div class="text-center col-sm-4 col-md-4 col-lg-4">
+      <circle-progress
+          [percent]="70"
+          [radius]="90"
+          [imageSrc]="'../assets/eng.png'"
+          [showImage]="true"
+          [imageHeight]="90"
+          [imageWidth]="90"
+          [showUnits]="false"
+          [showSubtitle]="false"
+          [outerStrokeWidth]="16"
+          [innerStrokeWidth]="2"
+          [outerStrokeColor]="'#78C000'"
+          [innerStrokeColor]="'#C7E596'"
+          [animation]="true"
+          [animationDuration]="600"
+      ></circle-progress>
+  </div>
+  <div class="text-center col-sm-4 col-md-4 col-lg-4">
+      <circle-progress
+          [percent]="100"
+          [radius]="90"
+          [imageSrc]="'../assets/grupal.png'"
+          [showImage]="true"
+          [imageHeight]="90"
+          [imageWidth]="90"
+          [showUnits]="false"
+          [showSubtitle]="false"
+          [outerStrokeWidth]="16"
+          [innerStrokeWidth]="2"
+          [outerStrokeColor]="'#78C000'"
+          [innerStrokeColor]="'#C7E596'"
+          [animation]="true"
+          [animationDuration]="600"
+      ></circle-progress>
   </div>
 </div>

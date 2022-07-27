@@ -1,22 +1,28 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
-import { LogoApComponent } from './components/logo-ap/logo-ap.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { AcercaDeComponent } from './components/acerca-de/acerca-de.component';
 import { ExperienciaComponent } from './components/experiencia/experiencia.component';
-import { HardSoftSkillComponent } from './components/hard-soft-skill/hard-soft-skill.component';
-import { EducationComponent } from './components/educacion/education.component';
-import { ProyectosComponent } from './components/proyectos/proyectos.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { EducacionComponent } from './components/educacion/educacion.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
-import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { NewExperienciaComponent } from './components/experiencia/new-experiencia.component';
+import { EditExperienciaComponent } from './components/experiencia/edit-experiencia.component';
+import { NeweducacionComponent } from './components/educacion/neweducacion.component';
+import { EditeducacionComponent } from './components/educacion/editeducacion.component';
+import { ProyectosComponent } from './components/proyectos/proyectos.component';
+import { LogoApComponent } from './components/logo-ap/logo-ap.component';
+import { HardSoftSkillComponent } from './components/hard-soft-skill/hard-soft-skill.component';
+import { interceptorProvider } from './service/interceptor.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,21 +31,28 @@ import { LoginComponent } from './components/login/login.component';
     BannerComponent,
     AcercaDeComponent,
     ExperienciaComponent,
+    EducacionComponent,
     HardSoftSkillComponent,
-    EducationComponent,
     ProyectosComponent,
     FooterComponent,
     HomeComponent,
     LoginComponent,
+    NewExperienciaComponent,
+    EditExperienciaComponent,
+    NeweducacionComponent,
+    EditeducacionComponent,
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     FormsModule,
     NgCircleProgressModule.forRoot({}),
+    HttpClientModule
   ],
-  providers: [],
-  bootstrap: [AppComponent],
+  providers: [
+    interceptorProvider
+  ],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

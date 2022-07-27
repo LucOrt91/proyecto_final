@@ -2,16 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Skill } from '../models/Skill';
+import { Skill } from '../models/skill.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SkillService {
-
   private apiServerUrl = environment.apiBaseUrl;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   public getSkill(): Observable<Skill[]> {
     return this.http.get<Skill[]>(`${this.apiServerUrl}/skill/all`);
@@ -23,6 +22,8 @@ export class SkillService {
     return this.http.put<Skill>(`${this.apiServerUrl}/skill/update`, skill);
   }
   public deleteSkill(skillId: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiServerUrl}/skill/delete/${skillId}`);
+    return this.http.delete<void>(
+      `${this.apiServerUrl}/skill/delete/${skillId}`
+    );
   }
 }

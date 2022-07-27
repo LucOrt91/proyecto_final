@@ -1,7 +1,6 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Info } from 'src/app/models/Info';
-import { HeaderService } from 'src/app/service/header.service';
+import { persona } from 'src/app/models/persona.model';
+import { PersonaService } from 'src/app/service/persona.service';
 
 @Component({
   selector: 'app-acerca-de',
@@ -9,22 +8,12 @@ import { HeaderService } from 'src/app/service/header.service';
   styleUrls: ['./acerca-de.component.css'],
 })
 export class AcercaDeComponent implements OnInit {
-  public info: Info | undefined;
-  public editInfo: Info | undefined;
-
-  constructor(private headerService: HeaderService) {}
+  persona: persona = new persona("","","","","");
+  
+  constructor(public personaService: PersonaService) { }
 
   ngOnInit(): void {
-    this.getInfo();
+    this.personaService.getPersona().subscribe(data => {this.persona = data})
   }
-  public getInfo(): void {
-    this.headerService.getUser().subscribe({
-      next: (response: Info) => {
-        this.info = response;
-      },
-      error: (error: HttpErrorResponse) => {
-        alert(error.message);
-      },
-    });
-  }
+
 }
