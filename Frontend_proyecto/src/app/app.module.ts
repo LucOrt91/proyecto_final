@@ -18,10 +18,13 @@ import { NewExperienciaComponent } from './components/experiencia/new-experienci
 import { EditExperienciaComponent } from './components/experiencia/edit-experiencia.component';
 import { NeweducacionComponent } from './components/educacion/neweducacion.component';
 import { EditeducacionComponent } from './components/educacion/editeducacion.component';
-import { ProyectosComponent } from './components/proyectos/proyectos.component';
+import { ProyectoComponent } from './components/proyecto/proyecto.component';
 import { LogoApComponent } from './components/logo-ap/logo-ap.component';
 import { HardSoftSkillComponent } from './components/hard-soft-skill/hard-soft-skill.component';
 import { interceptorProvider } from './service/interceptor.service';
+import { EditproyectoComponent } from './components/proyecto/edit-proyecto.component';
+import { NewproyectoComponent } from './components/proyecto/new-proyecto.component';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +36,7 @@ import { interceptorProvider } from './service/interceptor.service';
     ExperienciaComponent,
     EducacionComponent,
     HardSoftSkillComponent,
-    ProyectosComponent,
+    ProyectoComponent,
     FooterComponent,
     HomeComponent,
     LoginComponent,
@@ -41,6 +44,9 @@ import { interceptorProvider } from './service/interceptor.service';
     EditExperienciaComponent,
     NeweducacionComponent,
     EditeducacionComponent,
+    EditproyectoComponent,
+    NewproyectoComponent
+    
   ],
   imports: [
     BrowserModule,

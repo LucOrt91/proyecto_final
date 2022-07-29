@@ -1,13 +1,13 @@
 <div class="row">
-  <h1>Experiencia laboral</h1>
+  <h1>Proyectos</h1>
   <div class="col-lg-2">
     <button
       type="button"
       class="btn btn-dark"
-      routerLink="/nuevaexp"
+      routerLink="/nuevopro"
       *ngIf="isLogged"
     >
-      Nueva Experiencia
+      Nuevo proyecto
     </button>
   </div>
 
@@ -15,21 +15,21 @@
   <div class="col-lg-11">
     <table class="table">
       <tbody>
-        <tr *ngFor="let Experiencia of expe">
+        <tr *ngFor="let Proyecto of proyecto">
           <td>
-            <h2>{{ Experiencia.nombreE }}</h2>
+            <h2>{{ Proyecto.nombrePro }}</h2>
           </td>
-          <td>{{ Experiencia.descripcionE }}</td>
+          <td>{{ Proyecto.descripcionPro }}</td>
           <td *ngIf="isLogged">
             <button
               class="btn btn-light"
-              routerLink="/editexp/{{ Experiencia.id }}"
+              routerLink="/editpro/{{ Proyecto.idPro }}"
             >
               <i class="bi bi-pencil-fill"></i> EDITAR
             </button>
           </td>
           <td *ngIf="isLogged">
-            <button class="btn btn-danger" (click)="delete(Experiencia.id)">
+            <button class="btn btn-danger" (click)="delete(Proyecto.idPro)">
               <i class="bi bi-trash-fill"></i> BORRAR
             </button>
           </td>
