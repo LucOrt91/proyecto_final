@@ -1,6 +1,12 @@
-export interface Skill {
+export class Skill {
   idSkill: number;
-  tituloSkill: string;
-  imgSkill: string;
-  porcentaje: number;
+  nombreSkill: string;
+  imagenSkill: string;
+  nivelSkill: number;
+
+  constructor(nombreSkill: string, imagenSkill: string, nivelSkill: number) {
+    this.nombreSkill = nombreSkill;
+    this.imagenSkill = imagenSkill;
+    this.nivelSkill = nivelSkill;
+  }
 }

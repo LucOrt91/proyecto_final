@@ -9,25 +9,42 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-@Getter
-@Setter
 public class Educacion {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idEdu;
-    private String tituloEdu;
-    private int fechaEdu;
-    private String descEdu;
-    private String imgEdu;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int idEdu;
+    private String nombreEdu;
+    private String descripcionEdu;
 
     public Educacion() {
     }
 
-    public Educacion(long idEdu, String tituloEdu, int fechaEdu, String descEdu, String imgEdu) {
+    public Educacion(String nombreEdu, String descripcionEdu) {
+        this.nombreEdu = nombreEdu;
+        this.descripcionEdu = descripcionEdu;
+    }
+
+    public int getIdEdu() {
+        return idEdu;
+    }
+
+    public void setIdEdu(int idEdu) {
         this.idEdu = idEdu;
-        this.tituloEdu = tituloEdu;
-        this.fechaEdu = fechaEdu;
-        this.descEdu = descEdu;
-        this.imgEdu = imgEdu;
+    }
+
+    public String getNombreEdu() {
+        return nombreEdu;
+    }
+
+    public void setNombreEdu(String nombreEdu) {
+        this.nombreEdu = nombreEdu;
+    }
+
+    public String getDescripcionEdu() {
+        return descripcionEdu;
+    }
+
+    public void setDescripcionEdu(String descripcionEdu) {
+        this.descripcionEdu = descripcionEdu;
     }
 }

@@ -13,19 +13,33 @@ div {
 }
 
 @media (max-width: 578px) {
-  #fotoPerfil {
+  .img-fluid {
     position: relative;
     border-radius: 90%;
     box-shadow: 10px 5px 3px grey;
     margin-bottom: 10px;
   }
+  p{
+    font-size: 1.4rem;
+    color: black;
+    }
+  
 }
 
 @media (min-width: 578px) {
-  #fotoPerfil {
+  .img-fluid {
     width: 100%;
     border-radius: 80%;
     box-shadow: 3px 3px 3px grey;
     left: 2.5%;
+  }
+  #nombre{
+  font-size: 1.78rem;
+  color: black;
+  font-weight: bold;
+  }
+  p{
+  font-size: 1.4rem;
+  color: black;
   }
 }

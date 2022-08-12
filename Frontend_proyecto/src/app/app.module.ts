@@ -24,6 +24,10 @@ import { HardSoftSkillComponent } from './components/hard-soft-skill/hard-soft-s
 import { interceptorProvider } from './service/interceptor.service';
 import { EditproyectoComponent } from './components/proyecto/edit-proyecto.component';
 import { NewproyectoComponent } from './components/proyecto/new-proyecto.component';
+import { EditSkillComponent } from './components/hard-soft-skill/edit-skill.component';
+import { NewSkillComponent } from './components/hard-soft-skill/new-skill.component';
+
+
 
 
 @NgModule({
@@ -45,7 +49,9 @@ import { NewproyectoComponent } from './components/proyecto/new-proyecto.compone
     NeweducacionComponent,
     EditeducacionComponent,
     EditproyectoComponent,
-    NewproyectoComponent
+    NewproyectoComponent,
+    NewSkillComponent,
+    EditSkillComponent,
     
   ],
   imports: [

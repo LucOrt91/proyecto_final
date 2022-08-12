@@ -8,27 +8,48 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Getter
-@Setter
+
 @Entity
 public class Experiencia {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long idExp;
-    private String tituloExp;
-    private int fechaExp;
-    private String descExp;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int idExp;
+    private String nombreExp;
+    private String descripcionExp;
 
-    private String imgExp;
+    //Constructores
+
 
     public Experiencia() {
     }
 
-    public Experiencia(long idExp, String tituloExp, int fechaExp, String descExp, String imgEdu) {
+    public Experiencia(String nombreExp, String descripcionExp) {
+        this.nombreExp = nombreExp;
+        this.descripcionExp = descripcionExp;
+    }
+
+    public int getIdExp() {
+        return idExp;
+    }
+
+    public void setIdExp(int idExp) {
         this.idExp = idExp;
-        this.tituloExp = tituloExp;
-        this.fechaExp = fechaExp;
-        this.descExp = descExp;
-        this.imgExp = imgExp;
+    }
+
+    public String getNombreExp() {
+        return nombreExp;
+    }
+
+    public void setNombreExp(String nombreExp) {
+        this.nombreExp = nombreExp;
+    }
+
+    public String getDescripcionExp() {
+        return descripcionExp;
+    }
+
+    public void setDescripcionExp(String descripcionExp) {
+        this.descripcionExp = descripcionExp;
     }
 }
+

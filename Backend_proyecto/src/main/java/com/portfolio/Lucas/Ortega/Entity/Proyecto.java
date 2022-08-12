@@ -8,27 +8,46 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Getter
-@Setter
+
 @Entity
 public class Proyecto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long idPro;
-    private String tituloPro;
-    private String descPro;
-
-    private String imgPro;
+    private int idPro;
+    private String nombrePro;
+    private String descripcionPro;
 
     public Proyecto() {
     }
 
-    public Proyecto(long idPro, String tituloPro, String descExp, String imgExp) {
+    public Proyecto(String nombrePro, String descripcionPro) {
+        this.nombrePro = nombrePro;
+        this.descripcionPro = descripcionPro;
+    }
+
+    public int getIdPro() {
+        return idPro;
+    }
+
+    public void setIdPro(int idPro) {
         this.idPro = idPro;
-        this.tituloPro = tituloPro;
-        this.descPro = descExp;
-        this.imgPro = imgExp;
+    }
+
+    public String getNombrePro() {
+        return nombrePro;
+    }
+
+    public void setNombrePro(String nombrePro) {
+        this.nombrePro = nombrePro;
+    }
+
+    public String getDescripcionPro() {
+        return descripcionPro;
+    }
+
+    public void setDescripcionPro(String descripcionPro) {
+        this.descripcionPro = descripcionPro;
     }
 }
 

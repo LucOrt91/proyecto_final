@@ -7,8 +7,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Getter
-@Setter
 public class Persona implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +16,55 @@ public class Persona implements Serializable {
     private String apellido;
     private String titulo;
     private String descripcion;
-    private String fotoPerfil;
 
+
+    public Persona() {
+    }
+
+    public Persona(String nombre, String apellido, String titulo, String descripcion) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 }
