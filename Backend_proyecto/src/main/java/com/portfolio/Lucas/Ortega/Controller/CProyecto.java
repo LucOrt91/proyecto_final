@@ -1,11 +1,9 @@
-package com.lucasnortegaportfolio.lucas.n.ortega.Controller;
+package com.portfolio.Lucas.Ortega.Controller;
 
 
-import com.portfolio.Lucas.Ortega.Dto.dtoExperiencia;
 import com.portfolio.Lucas.Ortega.Dto.dtoProyecto;
 import com.portfolio.Lucas.Ortega.Entity.Proyecto;
 import com.portfolio.Lucas.Ortega.Security.controller.Mensaje;
-import com.portfolio.Lucas.Ortega.Service.SExperiencia;
 import com.portfolio.Lucas.Ortega.Service.SProyecto;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +13,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 @RestController
 @RequestMapping("/proyecto")
 @CrossOrigin(origins = "http://localhost:4200")
@@ -27,12 +26,12 @@ public class CProyecto {
         List<Proyecto> list = sProyecto.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
-    @PreAuthorize("hasRole('ADMIN')")
+
     @GetMapping("/detail/{id}")
     public ResponseEntity<Proyecto> getById(@PathVariable("id") int idPro){
         if(!sProyecto.existsById(idPro))
             return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
-        Proyecto proyecto = sProyecto.getOne(idPro).get();
+       Proyecto proyecto = sProyecto.getOne(idPro).get();
         return new ResponseEntity(proyecto, HttpStatus.OK);
     }
     @PreAuthorize("hasRole('ADMIN')")
@@ -51,12 +50,12 @@ public class CProyecto {
         if(StringUtils.isBlank(dtopro.getNombrePro()))
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         if(sProyecto.existsByNombrePro(dtopro.getNombrePro()))
-            return new ResponseEntity(new Mensaje("Esa experiencia existe"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("Ese Proyecto existe"), HttpStatus.BAD_REQUEST);
 
-        Proyecto proyecto = new Proyecto(dtopro.getNombrePro(), dtopro.getDescripcionPro());
+       Proyecto proyecto = new Proyecto(dtopro.getNombrePro(), dtopro.getDescripcionPro());
         sProyecto.save(proyecto);
 
-        return new ResponseEntity(new Mensaje("Experiencia agregada"), HttpStatus.OK);
+        return new ResponseEntity(new Mensaje("Proyecto agregada"), HttpStatus.OK);
     }
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/{id}")
@@ -64,9 +63,9 @@ public class CProyecto {
         //Validamos si existe el ID
         if(!sProyecto.existsById(idPro))
             return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
-        //Compara nombre de experiencias
+        //Compara nombre de proyectos
         if(sProyecto.existsByNombrePro(dtopro.getNombrePro()) && sProyecto.getByNombrePro(dtopro.getNombrePro()).get().getIdPro() != idPro)
-            return new ResponseEntity(new Mensaje("Esa experiencia ya existe"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("Ese proyecto ya existe"), HttpStatus.BAD_REQUEST);
         //No puede estar vacio
         if(StringUtils.isBlank(dtopro.getNombrePro()))
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
@@ -76,7 +75,8 @@ public class CProyecto {
         proyecto.setDescripcionPro((dtopro.getDescripcionPro()));
 
         sProyecto.save(proyecto);
-        return new ResponseEntity(new Mensaje("Experiencia actualizada"), HttpStatus.OK);
+        return new ResponseEntity(new Mensaje("Proyecto actualizada"), HttpStatus.OK);
 
     }
 }
+

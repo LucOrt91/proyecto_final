@@ -8,19 +8,16 @@ import javax.persistence.Id;
 @Entity
 public class Skill {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idSkill;
     private String nombreSkill;
     private String imgSkill;
-
     private int nivelSkill;
-
 
     public Skill() {
     }
 
-    public Skill(String tituloSkill, String imgSkill, int nivelSkill) {
-        this.idSkill = idSkill;
+    public Skill(String nombreSkill, String imgSkill, int nivelSkill) {
         this.nombreSkill = nombreSkill;
         this.imgSkill = imgSkill;
         this.nivelSkill = nivelSkill;

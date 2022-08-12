@@ -13,7 +13,7 @@ import javax.persistence.Id;
 public class Proyecto {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPro;
     private String nombrePro;
     private String descripcionPro;
@@ -50,4 +50,5 @@ public class Proyecto {
         this.descripcionPro = descripcionPro;
     }
 }
+
 

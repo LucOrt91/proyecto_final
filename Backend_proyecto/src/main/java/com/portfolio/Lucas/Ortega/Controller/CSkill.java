@@ -1,4 +1,4 @@
-package com.lucasnortegaportfolio.lucas.n.ortega.Controller;
+package com.portfolio.Lucas.Ortega.Controller;
 
 
 import com.portfolio.Lucas.Ortega.Dto.dtoSkill;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @RestController
 @RequestMapping("/skill")
 @CrossOrigin(origins = "http://localhost:4200")
@@ -27,7 +26,7 @@ public class CSkill {
         List<Skill> list = sSkill.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
-    @PreAuthorize("hasRole('ADMIN')")
+
     @GetMapping("/detail/{id}")
     public ResponseEntity<Skill> getById(@PathVariable("id") int idSkill){
         if(!sSkill.existsById(idSkill))
@@ -44,19 +43,18 @@ public class CSkill {
         sSkill.delete(idSkill);
         return new ResponseEntity(new Mensaje("producto eliminado"), HttpStatus.OK);
     }
-
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoSkill dtoSkill){
         if(StringUtils.isBlank(dtoSkill.getNombreSkil()))
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         if(sSkill.existsByNombreSkill(dtoSkill.getNombreSkil()))
-            return new ResponseEntity(new Mensaje("Esa experiencia existe"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("Esa Skill existe"), HttpStatus.BAD_REQUEST);
         Skill skill = new Skill(dtoSkill.getNombreSkil(), dtoSkill.getImagenSkill(), dtoSkill.getNivelSkill());
         sSkill.save(skill);
 
 
-        return new ResponseEntity(new Mensaje("Experiencia agregada"), HttpStatus.OK);
+        return new ResponseEntity(new Mensaje("Skill agregada"), HttpStatus.OK);
     }
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/{id}")
@@ -64,9 +62,9 @@ public class CSkill {
         //Validamos si existe el ID
         if(!sSkill.existsById(idSkill))
             return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
-        //Compara nombre de experiencias
+        //Compara nombre de Skill
         if(sSkill.existsByNombreSkill(dtoSkill.getNombreSkil()) && sSkill.getByNombreSkill(dtoSkill.getNombreSkil()).get().getIdSkill() != idSkill)
-            return new ResponseEntity(new Mensaje("Esa experiencia ya existe"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("Esa Skill ya existe"), HttpStatus.BAD_REQUEST);
         //No puede estar vacio
         if(StringUtils.isBlank(dtoSkill.getNombreSkil()))
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
@@ -75,6 +73,6 @@ public class CSkill {
             skill.setNivelSkill(dtoSkill.getNivelSkill());
 
             sSkill.save(skill);
-            return new ResponseEntity(new Mensaje("Experiencia actualizada"), HttpStatus.OK);
+            return new ResponseEntity(new Mensaje("Skill actualizada"), HttpStatus.OK);
         }
     }

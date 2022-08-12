@@ -25,7 +25,7 @@ public class CEducacion {
         List<Educacion> list = sEducacion.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
-    @PreAuthorize("hasRole('ADMIN')")
+
     @GetMapping("/detail/{id}")
     public ResponseEntity<Educacion> getById(@PathVariable("id")int idEdu){
         if(!sEducacion.existsById(idEdu)){

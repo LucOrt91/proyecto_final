@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Proyecto } from 'src/app/models/proyecto.model';
-import { ProyectoService } from 'src/app/service/projecto.service';
+import { ProyectoService } from 'src/app/service/proyecto.service';
+;
 import { TokenService } from 'src/app/service/token.service';
 
 @Component({
@@ -32,9 +33,9 @@ export class ProyectoComponent implements OnInit {
     });
   }
 
-  delete(id?: number) {
-    if (id != undefined) {
-      this.proyectoS.delete(id).subscribe(
+  delete(idPro?: number) {
+    if (idPro != undefined) {
+      this.proyectoS.delete(idPro).subscribe(
         (data) => {
           this.cargarProyecto();
         },

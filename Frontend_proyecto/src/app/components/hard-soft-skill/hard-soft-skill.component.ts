@@ -9,7 +9,8 @@ import { TokenService } from 'src/app/service/token.service';
 })
 export class HardSoftSkillComponent implements OnInit {
   skill: Skill[] = [];
-  nivelSkill: Skill['nivelSkill']
+  
+  
 
   constructor(
     private sSkill: SkillService,
@@ -33,9 +34,9 @@ export class HardSoftSkillComponent implements OnInit {
     });
   }
 
-  delete(id?: number) {
-    if (id != undefined) {
-      this.sSkill.delete(id).subscribe(
+  delete(idSkill?: number) {
+    if (idSkill != undefined) {
+      this.sSkill.delete(idSkill).subscribe(
         (data) => {
           this.cargarSkill();
         },

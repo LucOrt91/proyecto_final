@@ -12,18 +12,19 @@
   </div>
   <div class="col lg 1"></div>
   <div class="col-lg-11">
-    <tr *ngFor="let Skill of skill">
+    <tr *ngFor="let skill of skill">
       <div class="text-center col-sm-4 col-md-4 col-lg-4">
         <circle-progress
-          [percent]="Skill.nivelSkill"
+          [percent]="skill.nivelSkill"
           [radius]="90"
-          [imageSrc]="Skill.imagenSkill"
+          [imageSrc]=skill.imgSkill
           [showImage]="true"
           [imageHeight]="70"
           [imageWidth]="70"
           [showUnits]="false"
-          [showSubtitle]="true"
-          [subtitle]="Skill.nombreSkill"
+          [title]="skill.nombreSkill"
+          [showTitle]="true"
+          [showSubtitle]="false"
           [outerStrokeWidth]="16"
           [innerStrokeWidth]="2"
           [outerStrokeColor]="'#78C000'"
@@ -35,13 +36,13 @@
       <td *ngIf="isLogged">
         <button
           class="btn btn-light"
-          routerLink="/editskill/{{ Skill.idSkill }}"
+          routerLink="/editskill/{{ skill.idSkill }}"
         >
           <i class="bi bi-pencil-fill"></i> EDITAR
         </button>
       </td>
       <td *ngIf="isLogged">
-        <button class="btn btn-danger" (click)="delete(Skill.idSkill)">
+        <button class="btn btn-danger" (click)="delete(skill.idSkill)">
           <i class="bi bi-trash-fill"></i> BORRAR
         </button>
       </td>

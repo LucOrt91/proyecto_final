@@ -4,8 +4,9 @@ import { Observable } from 'rxjs';
 import { Proyecto } from '../models/proyecto.model';
 
 
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProyectoService {
   URL = 'http://localhost:8080/proyecto/';
@@ -16,19 +17,19 @@ export class ProyectoService {
     return this.httpClient.get<Proyecto[]>(this.URL + 'lista');
   }
 
-  public detail(id: number): Observable<Proyecto>{
-    return this.httpClient.get<Proyecto>(this.URL + `detail/${id}`);
+  public detail(idPro: number): Observable<Proyecto>{
+    return this.httpClient.get<Proyecto>(this.URL + `detail/${idPro}`);
   }
 
   public save(proyecto: Proyecto): Observable<any>{
     return this.httpClient.post<any>(this.URL + 'create', proyecto);
   }
 
-  public update(id: number, proyecto: Proyecto): Observable<any>{
-    return this.httpClient.put<any>(this.URL + `update/${id}`, proyecto);
+  public update(idPro: number, proyecto: Proyecto): Observable<any>{
+    return this.httpClient.put<any>(this.URL + `update/${idPro}`, proyecto);
   }
 
-  public delete(id: number): Observable<any>{
-    return this.httpClient.delete<any>(this.URL + `delete/${id}`);
+  public delete(idPro: number): Observable<any>{
+    return this.httpClient.delete<any>(this.URL + `delete/${idPro}`);
   }
 }

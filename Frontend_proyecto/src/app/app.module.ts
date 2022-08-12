@@ -20,12 +20,12 @@ import { NeweducacionComponent } from './components/educacion/neweducacion.compo
 import { EditeducacionComponent } from './components/educacion/editeducacion.component';
 import { ProyectoComponent } from './components/proyecto/proyecto.component';
 import { LogoApComponent } from './components/logo-ap/logo-ap.component';
-import { HardSoftSkillComponent } from './components/hard-soft-skill/hard-soft-skill.component';
 import { interceptorProvider } from './service/interceptor.service';
 import { EditproyectoComponent } from './components/proyecto/edit-proyecto.component';
 import { NewproyectoComponent } from './components/proyecto/new-proyecto.component';
 import { EditSkillComponent } from './components/hard-soft-skill/edit-skill.component';
 import { NewSkillComponent } from './components/hard-soft-skill/new-skill.component';
+import { HardSoftSkillComponent } from './components/hard-soft-skill/hard-soft-skill.component';
 
 
 

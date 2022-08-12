@@ -10,7 +10,7 @@ import { SkillService } from 'src/app/service/skill.service';
 })
 export class NewSkillComponent implements OnInit {
   nombreSkill: string = '';
-  imagenSkill: string = '';
+  imgSkill: string = '';
   nivelSkill: number;
 
   constructor(private sSkill: SkillService, private router: Router) { }
@@ -19,7 +19,7 @@ export class NewSkillComponent implements OnInit {
   }
 
   onCreate(): void {
-    const skill = new Skill(this.nombreSkill, this.imagenSkill, this.nivelSkill);
+    const skill = new Skill(this.nombreSkill, this.imgSkill, this.nivelSkill);
     this.sSkill.save(skill).subscribe(
       data => {
         alert("Skill añadida");

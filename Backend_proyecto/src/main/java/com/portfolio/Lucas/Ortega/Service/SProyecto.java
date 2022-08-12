@@ -12,34 +12,34 @@ import java.util.Optional;
 @Service
 @Transactional
 public class SProyecto {
-        @Autowired
-        RProyecto rProyecto;
+    @Autowired
+    RProyecto rProyecto;
 
-        public List<Proyecto> list(){
-            return rProyecto.findAll();
-        }
-
-        public Optional<Proyecto> getOne(int idPro){
-            return rProyecto.findById(idPro);
-        }
-
-        public Optional<Proyecto> getByNombrePro(String nombrePro){
-            return rProyecto.findByNombrePro(nombrePro);
-        }
-
-        public void save(Proyecto proyecto){
-            rProyecto.save(proyecto);
-        }
-
-        public void delete(int idPro){
-            rProyecto.deleteById(idPro);
-        }
-
-        public boolean existsById(int idPro){
-            return rProyecto.existsById(idPro);
-        }
-
-        public boolean existsByNombrePro(String nombrePro){
-            return rProyecto.existsByNombrePro(nombrePro);
-        }
+    public List<Proyecto> list() {
+        return rProyecto.findAll();
     }
+
+    public Optional<Proyecto> getOne(int idPro) {
+        return rProyecto.findById(idPro);
+    }
+
+    public Optional<Proyecto> getByNombrePro(String nombrePro) {
+        return rProyecto.findByNombrePro(nombrePro);
+    }
+
+    public void save(Proyecto proyecto) {
+        rProyecto.save(proyecto);
+    }
+
+    public void delete(int idPro) {
+        rProyecto.deleteById(idPro);
+    }
+
+    public boolean existsById(int idPro) {
+        return rProyecto.existsById(idPro);
+    }
+
+    public boolean existsByNombrePro(String nombrePro) {
+        return rProyecto.existsByNombrePro(nombrePro);
+    }
+}

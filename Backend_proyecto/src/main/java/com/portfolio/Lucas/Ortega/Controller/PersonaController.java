@@ -9,41 +9,48 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("/persona")
-@CrossOrigin(origins = "htttp://localhost:4200")
+@RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class PersonaController {
+    @Autowired IPersonaService ipersonaService;
 
-    @Autowired
-    IPersonaService iPersonaService;
-
-    @GetMapping("/traer")
-    public List<Persona> getPersona() {
-        return iPersonaService.getPersona();
+    @GetMapping("personas/traer")
+    public List<Persona> getPersona(){
+        return ipersonaService.getPersona();
     }
+
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/crear")
-    public String createPersona(@RequestBody Persona persona) {
-        iPersonaService.savePersona(persona);
+    @PostMapping("/personas/crear")
+    public String createPersona(@RequestBody Persona persona){
+        ipersonaService.savePersona(persona);
         return "La persona fue creada correctamente";
     }
+
     @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("/borrar/{id}")
-    public String deletePersona(@PathVariable Long id) {
-        iPersonaService.deletePersona(id);
+    @DeleteMapping("/personas/borrar/{id}")
+    public String deletePersona(@PathVariable Long id){
+        ipersonaService.deletePersona(id);
         return "La persona fue eliminada correctamente";
     }
+
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/editar/{id}")
+    @PutMapping("/personas/editar/{id}")
     public Persona editPersona(@PathVariable Long id,
                                @RequestParam("nombre") String nuevoNombre,
-                               @RequestParam("apellido") String nuevoApellido) {
-        Persona persona = iPersonaService.findPersona(id);
+                               @RequestParam("apellido") String nuevoApellido){
+        Persona persona = ipersonaService.findPersona(id);
+
         persona.setNombre(nuevoNombre);
         persona.setApellido(nuevoApellido);
 
-
-        iPersonaService.savePersona(persona);
+        ipersonaService.savePersona(persona);
         return persona;
     }
+
+    @GetMapping("personas/traer/perfil")
+    public Persona findPersona(){
+        return ipersonaService.findPersona((long)1);
+    }
+
 }
 

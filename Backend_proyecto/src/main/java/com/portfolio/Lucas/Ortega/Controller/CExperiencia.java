@@ -26,7 +26,7 @@ public class CExperiencia {
         List<Experiencia> list = sExperiencia.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
-    @PreAuthorize("hasRole('ADMIN')")
+
     @GetMapping("/detail/{id}")
     public ResponseEntity<Experiencia> getById(@PathVariable("id") int idExp){
         if(!sExperiencia.existsById(idExp))
