@@ -9,7 +9,7 @@ import { Proyecto } from '../models/proyecto.model';
   providedIn: 'root',
 })
 export class ProyectoService {
-  URL = 'https://beportfoliolucas.herokuapp.com//proyecto/';
+  URL = 'https://beportfoliolucas.herokuapp.com/proyecto/';
 
   constructor(private httpClient : HttpClient) { }
 
