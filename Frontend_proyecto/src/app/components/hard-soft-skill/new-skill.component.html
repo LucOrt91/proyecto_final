@@ -1,42 +1,43 @@
 <div class="container">
-  <div class="row">
-    <div>
-      <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
-        <div class="form-group">
-          <label for="nombreSkill">Nombre de la Skill</label>
-          <input
-            type="text"
-            class="form-control"
-            id="nombreSkill"
-            name="nombreSkill"
-            [(ngModel)]="nombreSkill"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="imagenSkill">Imagen de la Skill</label>
-          <input
-            type="text"
-            class="form-control"
-            id="imgSkill"
-            name="imgSkill"
-            [(ngModel)]="imgSkill"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="nivelSkill">Nivel Skill</label>
-          <input
-            type="number"
-            class="form-control"
-            id="nivelSkill"
-            name="nivelSkill"
-            [(ngModel)]="nivelSkill"
-            required
-          />
-        </div>
-        <button class="btn btn-primary">Agregar Skill</button>
-      </form>
+    <div class="row">
+      <div>
+        <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+            <div class="form-group">
+              <label for="nombreSkill">Nombre de la skill</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nombreSkill"
+                name="nombreSkill"
+                [(ngModel)]=nombreSkill
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="imgSkill">Imagen de la skill</label>
+              <input
+                type="text"
+                class="form-control"
+                id="imgSkill"
+                name="imgSkill"
+                [(ngModel)]=imgSkill
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="nivelSkill">Nivel de la skill</label>
+              <input
+                type="number"
+                class="form-control"
+                id="nivelSkill"
+                name="nivelSkill"
+                [(ngModel)]=nivelSkill
+                required
+              />
+            </div>
+          <button class="btn btn-primary">Agregar educacion</button>
+        </form>
+      </div>
     </div>
   </div>
-</div>
+  

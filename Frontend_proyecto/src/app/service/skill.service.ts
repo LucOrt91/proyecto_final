@@ -30,6 +30,7 @@ export class SkillService {
   }
 
   public delete(idSkill: number): Observable<any>{
-    return this.httpClient.delete<any>(this.URL + `delete/${idSkill}`);
+    return this.httpClient.delete<any>(this.URL + `delete/${idSkill}` );
   }
+
 }

@@ -23,9 +23,9 @@ import { LogoApComponent } from './components/logo-ap/logo-ap.component';
 import { interceptorProvider } from './service/interceptor.service';
 import { EditproyectoComponent } from './components/proyecto/edit-proyecto.component';
 import { NewproyectoComponent } from './components/proyecto/new-proyecto.component';
-import { EditSkillComponent } from './components/hard-soft-skill/edit-skill.component';
-import { NewSkillComponent } from './components/hard-soft-skill/new-skill.component';
 import { HardSoftSkillComponent } from './components/hard-soft-skill/hard-soft-skill.component';
+import { NewSkillComponent } from './components/hard-soft-skill/new-skill.component';
+import { EditSkillComponent } from './components/hard-soft-skill/edit-skill.component';
 
 
 

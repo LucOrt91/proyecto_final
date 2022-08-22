@@ -6,29 +6,28 @@ import { SkillService } from 'src/app/service/skill.service';
 @Component({
   selector: 'app-new-skill',
   templateUrl: './new-skill.component.html',
-  styleUrls: ['./new-skill.component.css']
+  styleUrls: ['./new-skill.component.css'],
 })
 export class NewSkillComponent implements OnInit {
-  nombreSkill: string = '';
-  imgSkill: string = '';
+  nombreSkill: string;
+  imgSkill: string;
   nivelSkill: number;
 
-  constructor(private sSkill: SkillService, private router: Router) { }
+  constructor(private skillS: SkillService, private router: Router) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onCreate(): void {
-    const skill = new Skill(this.nombreSkill, this.imgSkill, this.nivelSkill);
-    this.sSkill.save(skill).subscribe(
-      data => {
-        alert("Skill añadida");
+    const skill = new Skill(this.imgSkill, this.nombreSkill, this.nivelSkill);
+    this.skillS.save(skill).subscribe(
+      (data) => {
+        alert('Skill añadida correctamente');
         this.router.navigate(['']);
-      }, err => {
-        alert("Falló");
+      },
+      (err) => {
+        alert('falló añadir Skill');
         this.router.navigate(['']);
       }
-    )
+    );
   }
-
 }

@@ -1,6 +1,5 @@
 package com.portfolio.Lucas.Ortega.Controller;
 
-
 import com.portfolio.Lucas.Ortega.Dto.dtoSkill;
 import com.portfolio.Lucas.Ortega.Entity.Skill;
 import com.portfolio.Lucas.Ortega.Security.controller.Mensaje;
@@ -18,22 +17,25 @@ import java.util.List;
 @RequestMapping("/skill")
 @CrossOrigin(origins = "http://localhost:4200")
 public class CSkill {
+
     @Autowired
     SSkill sSkill;
 
     @GetMapping("/lista")
-    public ResponseEntity<List<Skill>> list(){
+    public ResponseEntity<List<Skill>> list() {
         List<Skill> list = sSkill.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
 
     @GetMapping("/detail/{id}")
-    public ResponseEntity<Skill> getById(@PathVariable("id") int idSkill){
-        if(!sSkill.existsById(idSkill))
+    public ResponseEntity<Skill> getById(@PathVariable("id") int idSkill) {
+        if (!sSkill.existsById(idSkill)) {
             return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
+        }
         Skill skill = sSkill.getOne(idSkill).get();
         return new ResponseEntity(skill, HttpStatus.OK);
     }
+
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int idSkill) {
@@ -43,36 +45,43 @@ public class CSkill {
         sSkill.delete(idSkill);
         return new ResponseEntity(new Mensaje("producto eliminado"), HttpStatus.OK);
     }
+
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/create")
-    public ResponseEntity<?> create(@RequestBody dtoSkill dtoSkill){
-        if(StringUtils.isBlank(dtoSkill.getNombreSkil()))
+    public ResponseEntity<?> create(@RequestBody dtoSkill dtoskill){
+        if(StringUtils.isBlank(dtoskill.getNombreSkill()))
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
-        if(sSkill.existsByNombreSkill(dtoSkill.getNombreSkil()))
+        if(sSkill.existsByNombreSkill(dtoskill.getNombreSkill()))
             return new ResponseEntity(new Mensaje("Esa Skill existe"), HttpStatus.BAD_REQUEST);
-        Skill skill = new Skill(dtoSkill.getNombreSkil(), dtoSkill.getImagenSkill(), dtoSkill.getNivelSkill());
-        sSkill.save(skill);
 
+       Skill skill = new Skill(dtoskill.getNombreSkill(), dtoskill.getImgSkill(), dtoskill.getNivelSkill());
+       sSkill.save(skill);
 
         return new ResponseEntity(new Mensaje("Skill agregada"), HttpStatus.OK);
     }
+
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") int idSkill, @RequestBody dtoSkill dtoSkill){
-        //Validamos si existe el ID
-        if(!sSkill.existsById(idSkill))
+    public ResponseEntity<?> update(@PathVariable("id") int idSkill, @RequestBody dtoSkill dtoskill) {
+//Validamos si existe el ID
+        if (!sSkill.existsById(idSkill)) {
             return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
-        //Compara nombre de Skill
-        if(sSkill.existsByNombreSkill(dtoSkill.getNombreSkil()) && sSkill.getByNombreSkill(dtoSkill.getNombreSkil()).get().getIdSkill() != idSkill)
-            return new ResponseEntity(new Mensaje("Esa Skill ya existe"), HttpStatus.BAD_REQUEST);
-        //No puede estar vacio
-        if(StringUtils.isBlank(dtoSkill.getNombreSkil()))
-            return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
-            Skill skill = sSkill.getOne(idSkill).get();
-            skill.setNombreSkill(dtoSkill.getNombreSkil());
-            skill.setNivelSkill(dtoSkill.getNivelSkill());
-
-            sSkill.save(skill);
-            return new ResponseEntity(new Mensaje("Skill actualizada"), HttpStatus.OK);
         }
+//Compara nombre de Skill
+        if (sSkill.existsByNombreSkill(dtoskill.getNombreSkill()) && sSkill.getByNombreSkill(dtoskill.getNombreSkill()).get().getIdSkill() != idSkill) {
+            return new ResponseEntity(new Mensaje("Esa Skill ya existe"), HttpStatus.BAD_REQUEST);
+        }
+//No puede estar vacio
+        if (StringUtils.isBlank(dtoskill.getNombreSkill())) {
+            return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
+        }
+
+        Skill skill = sSkill.getOne(idSkill).get();
+        skill.setNombreSkill(dtoskill.getNombreSkill());
+        skill.setImgSkill(dtoskill.getImgSkill());
+        skill.setNivelSkill(dtoskill.getNivelSkill());
+
+        sSkill.save(skill);
+        return new ResponseEntity(new Mensaje("Skill actualizada"), HttpStatus.OK);
     }
+}

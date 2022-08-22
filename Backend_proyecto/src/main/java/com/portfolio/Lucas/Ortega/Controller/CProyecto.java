@@ -1,6 +1,5 @@
 package com.portfolio.Lucas.Ortega.Controller;
 
-
 import com.portfolio.Lucas.Ortega.Dto.dtoProyecto;
 import com.portfolio.Lucas.Ortega.Entity.Proyecto;
 import com.portfolio.Lucas.Ortega.Security.controller.Mensaje;
@@ -75,7 +74,7 @@ public class CProyecto {
         proyecto.setDescripcionPro((dtopro.getDescripcionPro()));
 
         sProyecto.save(proyecto);
-        return new ResponseEntity(new Mensaje("Proyecto actualizada"), HttpStatus.OK);
+        return new ResponseEntity(new Mensaje("Proyecto actualizado"), HttpStatus.OK);
 
     }
 }

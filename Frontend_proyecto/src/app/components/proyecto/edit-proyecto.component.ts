@@ -18,7 +18,7 @@ export class EditproyectoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const id = this.activatedRouter.snapshot.params['idPro'];
+    const id = this.activatedRouter.snapshot.params['id'];
     this.proyectoS.detail(id).subscribe(
       data =>{
         this.proyecto = data;
@@ -30,7 +30,7 @@ export class EditproyectoComponent implements OnInit {
   }
 
   onUpdate(): void{
-    const id = this.activatedRouter.snapshot.params['idPro'];
+    const id = this.activatedRouter.snapshot.params['id'];
     this.proyectoS.update(id, this.proyecto).subscribe(
       data => {
         this.router.navigate(['']);

@@ -2,32 +2,32 @@ package com.portfolio.Lucas.Ortega.Dto;
 
 public class dtoSkill {
     private String nombreSkill;
-    private String imagenSkill;
+    private String imgSkill;
     private int nivelSkill;
 
     public dtoSkill() {
     }
 
-    public dtoSkill(String nombreSkill, String imagenSkill, int nivelSkill) {
+    public dtoSkill(String nombreSkill, String imgSkill, int nivelSkill) {
         this.nombreSkill = nombreSkill;
-        this.imagenSkill = imagenSkill;
+        this.imgSkill = imgSkill;
         this.nivelSkill = nivelSkill;
     }
 
-    public String getNombreSkil() {
+    public String getNombreSkill() {
         return nombreSkill;
     }
 
-    public void setNombreSkil(String nombreSkil) {
-        nombreSkill = nombreSkil;
+    public void setNombreSkill(String nombreSkill) {
+        this.nombreSkill = nombreSkill;
     }
 
-    public String getImagenSkill() {
-        return imagenSkill;
+    public String getImgSkill() {
+        return imgSkill;
     }
 
-    public void setImagenSkill(String imagenSkill) {
-        this.imagenSkill = imagenSkill;
+    public void setImgSkill(String imgSkill) {
+        this.imgSkill = imgSkill;
     }
 
     public int getNivelSkill() {
