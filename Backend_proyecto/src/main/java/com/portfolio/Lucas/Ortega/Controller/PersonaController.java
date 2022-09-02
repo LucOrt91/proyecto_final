@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "https://lucasortegaporfolio.web.app")
+@CrossOrigin(origins = "https://lucasortegaportfolio-d1feb.web.app")
 public class PersonaController {
     @Autowired IPersonaService ipersonaService;
 

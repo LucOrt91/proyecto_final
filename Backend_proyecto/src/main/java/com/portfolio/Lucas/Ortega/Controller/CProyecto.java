@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/proyecto")
-@CrossOrigin(origins = "https://lucasortegaporfolio.web.app")
+@CrossOrigin(origins = "https://lucasortegaportfolio-d1feb.web.app")
 public class CProyecto {
     @Autowired
     SProyecto sProyecto;

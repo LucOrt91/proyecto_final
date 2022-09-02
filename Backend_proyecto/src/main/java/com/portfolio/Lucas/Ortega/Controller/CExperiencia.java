@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/experiencia")
-@CrossOrigin(origins = "https://lucasortegaporfolio.web.app")
+@CrossOrigin(origins = "https://lucasortegaportfolio-d1feb.web.app")
 public class CExperiencia {
     @Autowired
     SExperiencia sExperiencia;
