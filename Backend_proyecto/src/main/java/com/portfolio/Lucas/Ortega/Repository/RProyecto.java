@@ -1,7 +1,5 @@
 package com.portfolio.Lucas.Ortega.Repository;
 
-
-
 import com.portfolio.Lucas.Ortega.Entity.Proyecto;
 import org.springframework.data.jpa.repository.JpaRepository;
 
