@@ -7,7 +7,7 @@ import { Skill } from '../models/skill.model';
   providedIn: 'root',
 })
 export class SkillService {
-  URL = 'https://beportfoliolucas.herokuapp.com/skill/';
+  URL = 'https://be-portfolio.onrender.com/skill/';
 
   constructor(private httpClient: HttpClient) {}
 

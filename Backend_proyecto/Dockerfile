@@ -9,4 +9,3 @@ EXPOSE 8080
 
 # Establece el comando de inicio para la aplicación
 CMD ["java", "-jar", "/portfolio-app.jar"]
-
