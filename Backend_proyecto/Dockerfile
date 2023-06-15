@@ -1,5 +1,5 @@
-# Usa la imagen de Amazon Corretto 17 como base
-FROM amazoncorretto:17-alpinedk
+FROM openjdk:17-alpine
+
 
 # Copia el archivo JAR del backend en la imagen de Docker
 COPY target/Lucas-Ortega-0.0.1-SNAPSHOT.jar portfolio-app.jar
